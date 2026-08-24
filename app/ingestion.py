@@ -62,17 +62,19 @@ client = QdrantClient(
 
 collection_name = "langchain_qdrant_docs"
 
-if not client.collection_exists(collection_name):
-    client.create_collection(
-        collection_name=collection_name,
-        vectors_config=VectorParams(
-            size=768,
-            distance=Distance.COSINE,
-        ),
-    )
-    print(f"Created collection: {collection_name}")
-else:
-    print(f"Collection already exists: {collection_name}")
+if client.collection_exists(collection_name):
+    client.delete_collection(collection_name)
+    print(f"Deleted old collection: {collection_name}")
+
+client.create_collection(
+    collection_name=collection_name,
+    vectors_config=VectorParams(
+        size=768,
+        distance=Distance.COSINE,
+    ),
+)
+
+print(f"Created collection: {collection_name}")
 
 embeddings = OllamaEmbeddings(
     model="nomic-embed-text"
@@ -101,9 +103,9 @@ client.upsert(
 
 print(f"Uploaded {len(points)} points to Qdrant")
 
-for i, chunk in enumerate(chunks[:5]):
+for i, chunk in enumerate(chunks[:10]):
     print(f"\n--- CHUNK {i + 1} ---")
-    print(chunk.page_content[:300])
+    print(chunk.page_content[:1000])
 
 print(f"Loaded {len(docs)} documents")
 print(f"Created {len(chunks)} chunks")
