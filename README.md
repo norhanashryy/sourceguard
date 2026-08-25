@@ -19,7 +19,7 @@ Unsupported questions are refused rather than answered using the model's pretrai
 - Refusal of unsupported questions
 - Source citations
 - Streamlit chat interface
-- 20-question evaluation dataset
+- 100-question evaluation dataset
 - JSONL evaluation logs
 
 ## Tech Stack
@@ -95,8 +95,6 @@ Create `.env` from `.env.example` and provide the required Qdrant configuration.
 ```bash
 cp .env.example .env
 ```
-
-**Never commit `.env` or any API keys/secrets.**
 
 ## Ingestion
 
