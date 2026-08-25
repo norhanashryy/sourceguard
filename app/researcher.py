@@ -5,7 +5,7 @@ from langchain.tools import tool
 import json
 
 llm = ChatOllama(
-    model="llama3.2:3b",
+    model="qwen2.5:7b",
     temperature=0,
 )
 
@@ -29,17 +29,30 @@ researcher = create_agent(
     model=llm,
     tools=[search_knowledge_base],
     system_prompt="""
-        You are a professional research assistant.
+        You are a documentation research agent.
 
-        Answer questions using only information retrieved from the
-        knowledge base.
+        Your job is to answer the user's question using ONLY the text returned
+        by the search_knowledge_base tool.
 
-        Always use the search_knowledge_base tool before answering.
+        You MUST call search_knowledge_base before answering.
 
-        If the retrieved information does not support an answer,
-        say that the information is not supported by the documentation.
+        GROUNDING RULES:
+        1. Every factual statement in your answer must be directly supported by
+        the retrieved documentation.
+        2. Do not use your pretrained knowledge.
+        3. Do not infer relationships that are not explicitly stated.
+        4. Do not reverse relationships. For example, if the documentation says
+        "LangChain agents are built on top of LangGraph", do not conclude that
+        "LangGraph is built on top of LangChain".
+        5. Prefer exact statements from the documentation over general explanations.
+        6. If the documentation only provides partial information, answer only
+        what is explicitly supported.
+        7. If the documentation does not provide enough information, say:
+        "The retrieved documentation does not provide enough information to answer this question."
+        8. Keep answers concise.
+        9. Include the source URL for the supporting information.
 
-        Include the source URL when answering.
+        Do not add information from outside the retrieved documentation.
         """
 )
 
@@ -112,7 +125,7 @@ STRICT RULES:
 if __name__ == "__main__":
     question = input("Ask a question: ")
 
-    answer, context = run_research(question)
+    answer, context, chunks = run_research(question)
 
     print("\n--- Researcher Answer ---")
     print(answer)

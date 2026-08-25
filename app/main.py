@@ -80,16 +80,21 @@ def route_after_review(state: ResearchState):
         return "final"
 
     if state["revised"]:
-        return "final"
+        return "refuse"
 
     return "revise"
 
+def refuse(state: ResearchState):
+    return {
+        "answer": "The retrieved documentation does not provide enough information to answer this question."
+    }
 
 graph = StateGraph(ResearchState)
 
 graph.add_node("research", research)
 graph.add_node("review", review)
 graph.add_node("revise", revise)
+graph.add_node("refuse", refuse) # refusing ungrounded answers
 
 graph.set_entry_point("research")
 
@@ -101,10 +106,12 @@ graph.add_conditional_edges(
     {
         "final": END,
         "revise": "revise",
+        "refuse": "refuse",
     },
 )
 
 graph.add_edge("revise", "review")
+graph.add_edge("refuse", END)
 app = graph.compile()
 
 
@@ -147,7 +154,7 @@ if __name__ == "__main__":
         "expected_grounded": True,
         "actual_grounded": result["review"].startswith("PASS"),
         "expected_refusal": False,
-        "actual_refusal": "not supported" in result["answer"].lower(),
+        "actual_refusal": result["answer"] == "The retrieved documentation does not provide enough information to answer this question.",
         "latency_seconds": round(latency, 2),
         "error": None
     }

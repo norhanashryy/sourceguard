@@ -1,9 +1,8 @@
 from langchain.agents import create_agent
 from langchain_ollama import ChatOllama
-from researcher import run_research
 
 llm = ChatOllama(
-    model="llama3.2:3b",
+    model="qwen2.5:7b",
     temperature=0,
 )
 
@@ -11,74 +10,44 @@ reviewer = create_agent(
     model=llm,
     tools=[],
     system_prompt="""
-        You are a strict documentation fact checker.
+You are a strict documentation fact-checking agent.
 
-        Your only job is to determine whether the researcher's claims are
-        explicitly supported by the provided documentation.
+Your job is to determine whether the researcher's answer is fully supported
+by the retrieved documentation.
 
-        Do NOT use your own knowledge.
+Do NOT use outside knowledge.
 
-        Do NOT infer or assume information.
+For every factual claim in the researcher's answer:
 
-        A claim is supported ONLY if the documentation directly states it
-        or clearly states the same fact.
+1. Check whether the documentation explicitly states the claim or clearly
+   entails the same fact or relationship.
+2. Accept reasonable paraphrases and concise restatements of information
+   contained in the documentation.
+3. Do not require identical wording between the answer and documentation.
+4. Do not accept claims that require information from outside the
+   documentation.
+5. Do not infer new relationships that are not supported by the documentation.
+6. Pay particular attention to the direction of relationships. Do not reverse
+   relationships stated in the documentation.
+7. If the documentation only partially supports an answer, reject the
+   unsupported portion rather than assuming it is true.
 
-        For example, if the documentation says "graph API", that does NOT
-        support the claim "knowledge graph".
+The reviewer must judge ONLY the relationship between the answer and the
+provided documentation.
 
-        If every claim is explicitly supported, return PASS.
+Return exactly:
 
-        If even one claim is not explicitly supported, return FAIL and
-        identify the unsupported claim.
+PASS
 
-        Be strict rather than generous.
-        Do not use outside knowledge when reviewing.
-        """
+if every factual claim in the answer is supported.
+
+Otherwise return:
+
+FAIL
+Unsupported claim: <brief description of the unsupported claim>
+
+Do not use your own knowledge.
+Do not rewrite the answer.
+Do not provide additional explanations.
+"""
 )
-
-
-def review_answer(answer, context):
-    prompt = f"""
-    Review the researcher's answer against the provided documentation.
-
-    Documentation:
-    {context}
-
-    Researcher's answer:
-    {answer}
-
-    Check every factual claim in the answer.
-
-    Return PASS if every claim is supported by the documentation.
-
-    If any claim is unsupported, return FAIL and briefly explain
-    which claim is not supported.
-
-    Do not use outside knowledge.
-    """
-
-    result = reviewer.invoke(
-        {
-            "messages": [
-                {
-                    "role": "user",
-                    "content": prompt,
-                }
-            ]
-        }
-    )
-
-    return result["messages"][-1].content
-
-if __name__ == "__main__":
-    question = input("Ask a question: ")
-
-    answer, context = run_research(question)
-
-    review = review_answer(answer, context)
-
-    print("\n--- Researcher Answer ---")
-    print(answer)
-
-    print("\n--- Reviewer ---")
-    print(review)
