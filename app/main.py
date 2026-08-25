@@ -1,7 +1,7 @@
 from typing import TypedDict
 from langgraph.graph import StateGraph, END
-from researcher import run_research, revise_answer
-from reviewer import reviewer
+from app.researcher import run_research, revise_answer
+from app.reviewer import reviewer
 import json
 import time
 
@@ -149,7 +149,7 @@ if __name__ == "__main__":
         "test_id": 1,
         "input": question,
         "agent_1_output": result["original_answer"],
-        "retrieved_chunks": [result["documentation"]],
+        "retrieved_chunks": result["chunks"],
         "agent_2_output": result["review"],
         "expected_grounded": True,
         "actual_grounded": result["review"].startswith("PASS"),

@@ -1,0 +1,162 @@
+[
+  {
+    "test_id": 1,
+    "question": "What is LangChain?"
+  },
+  {
+    "test_id": 2,
+    "question": "What is LangGraph?"
+  },
+  {
+    "test_id": 3,
+    "question": "What is Qdrant?"
+  },
+  {
+    "test_id": 4,
+    "question": "How are LangChain agents related to LangGraph?"
+  },
+  {
+    "test_id": 5,
+    "question": "What capabilities does LangGraph provide to LangChain agents?"
+  },
+  {
+    "test_id": 6,
+    "question": "What is retrieval in LangChain?"
+  },
+  {
+    "test_id": 7,
+    "question": "What components are involved in building a retrieval system?"
+  },
+  {
+    "test_id": 8,
+    "question": "What is an agentic RAG system?"
+  },
+  {
+    "test_id": 9,
+    "question": "How can a LangGraph agent use a retriever?"
+  },
+  {
+    "test_id": 10,
+    "question": "What does the LangGraph agentic RAG tutorial demonstrate?"
+  },
+  {
+    "test_id": 11,
+    "question": "What is a vector store used for in retrieval?"
+  },
+  {
+    "test_id": 12,
+    "question": "What does semantic search mean in the LangChain documentation?"
+  },
+  {
+    "test_id": 13,
+    "question": "What does Qdrant store in a collection?"
+  },
+  {
+    "test_id": 14,
+    "question": "What are payloads in Qdrant?"
+  },
+  {
+    "test_id": 15,
+    "question": "What is filtering used for in Qdrant?"
+  },
+  {
+    "test_id": 16,
+    "question": "Why are payload indexes useful in Qdrant?"
+  },
+  {
+    "test_id": 17,
+    "question": "How does Qdrant support semantic search?"
+  },
+  {
+    "test_id": 18,
+    "question": "What is HNSW used for in Qdrant?"
+  },
+  {
+    "test_id": 19,
+    "question": "Who invented LangGraph?"
+  },
+  {
+    "test_id": 20,
+    "question": "What is the current stock price of Apple?"
+  },
+  {"test_id": 21, "question": "What does LangChain provide for building LLM applications?"},
+  {"test_id": 22, "question": "What is the purpose of LangChain's create_agent function?"},
+  {"test_id": 23, "question": "What are chat models in LangChain?"},
+  {"test_id": 24, "question": "What is a model provider in LangChain?"},
+  {"test_id": 25, "question": "What is LangSmith used for according to the LangChain documentation?"},
+  {"test_id": 26, "question": "What does LangChain support besides chat models?"},
+  {"test_id": 27, "question": "What is middleware used for in LangChain agents?"},
+  {"test_id": 28, "question": "What does LangChain say about customizing agents?"},
+  {"test_id": 29, "question": "What is the purpose of tool integration in LangChain?"},
+  {"test_id": 30, "question": "What kinds of workflows can LangGraph be used with according to the LangChain documentation?"},
+  {"test_id": 31, "question": "What is a Qdrant collection?"},
+  {"test_id": 32, "question": "What does Qdrant use vectors for?"},
+  {"test_id": 33, "question": "What is a vector index in Qdrant?"},
+  {"test_id": 34, "question": "What information can Qdrant store alongside vectors?"},
+  {"test_id": 35, "question": "What is a dense vector search in Qdrant?"},
+  {"test_id": 36, "question": "What is sparse vector search in Qdrant?"},
+  {"test_id": 37, "question": "What is hybrid search in Qdrant?"},
+  {"test_id": 38, "question": "What is similarity search used for in Qdrant?"},
+  {"test_id": 39, "question": "What are payload indexes in Qdrant used for?"},
+  {"test_id": 40, "question": "How does Qdrant filtering work with payload data?"},
+  {"test_id": 41, "question": "How can LangChain work with Qdrant?"},
+  {"test_id": 42, "question": "What role does Qdrant play in a LangChain retrieval application?"},
+  {"test_id": 43, "question": "How does LangChain use Qdrant for retrieving documents?"},
+  {"test_id": 44, "question": "What retrieval methods does the LangChain-Qdrant integration support?"},
+  {"test_id": 45, "question": "How are embeddings related to Qdrant in a LangChain application?"},
+  {"test_id": 46, "question": "How can a vector store support retrieval in LangChain?"},
+  {"test_id": 47, "question": "How do LangChain embeddings and Qdrant work together?"},
+  {"test_id": 48, "question": "What is the relationship between a retriever and a vector store in LangChain?"},
+  {"test_id": 49, "question": "How can semantic search be used with LangChain and Qdrant?"},
+  {"test_id": 50, "question": "How does Qdrant support the retrieval of relevant documents in a LangChain application?"},
+  {"test_id": 51, "question": "Can LangChain retrieve documents using Qdrant?"},
+  {"test_id": 52, "question": "What does LangChain say about using Qdrant as a vector index?"},
+  {"test_id": 53, "question": "How does the LangChain-Qdrant integration support hybrid retrieval?"},
+  {"test_id": 54, "question": "How can retrieved documents be used to answer questions in an agentic RAG system?"},
+  {"test_id": 55, "question": "How does the LangGraph retrieval-agent pattern decide whether to retrieve information?"},
+  {"test_id": 56, "question": "What happens when a LangGraph retrieval agent needs additional documentation?"},
+  {"test_id": 57, "question": "What does the LangGraph agentic RAG tutorial say about vector stores?"},
+  {"test_id": 58, "question": "What components does the LangGraph agentic RAG tutorial identify for retrieval?"},
+  {"test_id": 59, "question": "How are retrieval and generation combined in the LangGraph agentic RAG example?"},
+  {"test_id": 60, "question": "What is the role of a retriever tool in the LangGraph agentic RAG pattern?"},
+  {"test_id": 61, "question": "Which company currently maintains LangChain?"},
+  {"test_id": 62, "question": "Who founded Qdrant?"},
+  {"test_id": 63, "question": "When was LangGraph first released?"},
+  {"test_id": 64, "question": "What is the latest version of LangChain?"},
+  {"test_id": 65, "question": "What is the current Qdrant Cloud price?"},
+  {"test_id": 66, "question": "Which programming language is faster, Python or LangChain?"},
+  {"test_id": 67, "question": "Which LLM is the best for LangChain applications?"},
+  {"test_id": 68, "question": "Is Qdrant better than Pinecone?"},
+  {"test_id": 69, "question": "What is today's Qdrant stock price?"},
+  {"test_id": 70, "question": "What are developers saying about LangGraph?"},
+  {"test_id": 71, "question": "What is the exact date LangChain was created?"},
+  {"test_id": 72, "question": "What is the exact number of users currently using Qdrant?"},
+  {"test_id": 73, "question": "What percentage improvement does Qdrant provide over a traditional database?"},
+  {"test_id": 74, "question": "What exact latency does LangGraph add to every agent execution?"},
+  {"test_id": 75, "question": "What exact accuracy does semantic search achieve in LangChain?"},
+  {"test_id": 76, "question": "What is the exact memory consumption of a Qdrant collection?"},
+  {"test_id": 77, "question": "What exact model does LangChain recommend for production agents?"},
+  {"test_id": 78, "question": "What is the exact release version of the LangGraph agentic RAG tutorial?"},
+  {"test_id": 79, "question": "What percentage of retrieval queries should use hybrid search according to the documentation?"},
+  {"test_id": 80, "question": "What is the exact maximum number of vectors that Qdrant can store in one collection?"},
+  {"test_id": 81, "question": "LangChain?"},
+  {"test_id": 82, "question": "Qdrant?"},
+  {"test_id": 83, "question": "LangGraph?"},
+  {"test_id": 84, "question": "What is retrieval?"},
+  {"test_id": 85, "question": "What is an embedding model?"},
+  {"test_id": 86, "question": "LangChain vs LangGraph?"},
+  {"test_id": 87, "question": "Dense vs sparse search in Qdrant?"},
+  {"test_id": 88, "question": "What does Qdrant store?"},
+  {"test_id": 89, "question": "What is an agentic RAG workflow?"},
+  {"test_id": 90, "question": "What does LangSmith do?"},
+  {"test_id": 91, "question": "What does Qdrant use HNSW for?"},
+  {"test_id": 92, "question": "What is the purpose of payload filtering in Qdrant?"},
+  {"test_id": 93, "question": "What does LangChain's retrieval documentation say about indexing documents?"},
+  {"test_id": 94, "question": "What does the LangGraph documentation say happens after documents are retrieved?"},
+  {"test_id": 95, "question": "What is the difference between a vector store and a retriever according to the documentation?"},
+  {"test_id": 96, "question": "Can LangGraph answer questions without retrieving anything?"},
+  {"test_id": 97, "question": "Can Qdrant retrieve documents using both dense and sparse vectors?"},
+  {"test_id": 98, "question": "Can LangChain agents use tools according to the documentation?"},
+  {"test_id": 99, "question": "Does the documentation state who invented LangGraph?"},
+  {"test_id": 100, "question": "Does the documentation provide the current stock price of Apple?"}
+]

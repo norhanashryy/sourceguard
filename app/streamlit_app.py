@@ -1,8 +1,9 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import streamlit as st
 import time
-
-from main import app
-
+from app.main import app
 
 st.set_page_config(
     page_title="Grounded Documentation Assistant",

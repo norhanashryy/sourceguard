@@ -1,6 +1,6 @@
 from langchain.agents import create_agent
 from langchain_ollama import ChatOllama
-from retriever import search_docs
+from app.retriever import search_docs
 from langchain.tools import tool
 import json
 

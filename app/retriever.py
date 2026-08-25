@@ -1,5 +1,5 @@
 from langchain_ollama import OllamaEmbeddings
-from qdrant import get_client
+from app.qdrant import get_client
 
 COLLECTION_NAME = "langchain_qdrant_docs"
 
